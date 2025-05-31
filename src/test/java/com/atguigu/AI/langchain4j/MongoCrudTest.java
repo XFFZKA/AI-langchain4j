@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.core.query.Update;
 public class MongoCrudTest {
     @Autowired
     private MongoTemplate mongoTemplate;
+
     /**
      * 插入文档
      */
@@ -19,6 +20,7 @@ public class MongoCrudTest {
 //    public void testInsert() {
 //        mongoTemplate.insert(new ChatMessages(1L, "聊天记录"));
 //    }
+
     /**
      * 插入文档
      */
@@ -33,10 +35,11 @@ public class MongoCrudTest {
      */
     @Test
     public void testFindById() {
-        ChatMessages chatMessages = mongoTemplate.findById("6801ead733ba9c4a0d9b6c7b",
+        ChatMessages chatMessages = mongoTemplate.findById("683aa2965d022939ba9d946e",
                 ChatMessages.class);
         System.out.println(chatMessages);
     }
+
     /**
      * 修改文档
      */
