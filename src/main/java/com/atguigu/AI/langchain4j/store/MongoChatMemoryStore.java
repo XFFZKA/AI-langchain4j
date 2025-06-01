@@ -27,6 +27,7 @@ public class MongoChatMemoryStore implements ChatMemoryStore {
         if(chatMessages == null) return new LinkedList<>();
         return ChatMessageDeserializer.messagesFromJson(chatMessages.getContent());
     }
+
     @Override
     public void updateMessages(Object memoryId, List<ChatMessage> messages) {
         Criteria criteria = Criteria.where("memoryId").is(memoryId);
@@ -36,6 +37,7 @@ public class MongoChatMemoryStore implements ChatMemoryStore {
         //根据query条件能查询出文档，则修改文档；否则新增文档
         mongoTemplate.upsert(query, update, ChatMessages.class);
     }
+
     @Override
     public void deleteMessages(Object memoryId) {
         Criteria criteria = Criteria.where("memoryId").is(memoryId);
